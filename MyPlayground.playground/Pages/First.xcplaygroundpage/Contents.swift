@@ -13,8 +13,8 @@ class MyViewController: UIViewController {
         view.backgroundColor = .white
         let label = UILabel()
         label.frame = CGRect(x: 30, y: 200, width: 200, height: 20)
-        label.text = "Quando pensamos em viajar, geralmente queremos ir à vários lugares e é difícil decidir quais as nossas prioridades e expectativas. Por isso, monte seu próprio cenário para descobrir quais aspectos você mais valoriza no momento para escolher um destino."
-        label.numberOfLines = 20
+        label.text = "Categorias"
+        label.numberOfLines = 100
         label.textColor = .black
         
         button.frame = CGRect(x: 150, y: 220, width: 200, height: 40)
@@ -41,6 +41,6 @@ class MyViewController: UIViewController {
         print("oi")
     }
 }
-let vc = MyViewController(screenType: .mac, isPortrait: true)
+let vc = MyViewController(screenType: .ipad, isPortrait: false)
 PlaygroundPage.current.liveView = vc.scale(to: 0.4)
 
