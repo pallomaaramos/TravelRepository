@@ -2,6 +2,10 @@ import UIKit
 import PlaygroundSupport
 
 
+var clima = ""
+
+// Primeira tela: botão de Play
+
 class MyViewController: UIViewController {
     
     let play = UIButton()
@@ -35,11 +39,12 @@ class MyViewController: UIViewController {
     }
 }
 
+ // Segunda Tela: Usuário escolhe entre clima frio ou quente e passa para próxima tela
+
 class SecondViewController: UIViewController {
     
     let clima1 = UIButton()
     let clima2 = UIButton()
-//    let prox = UIButton()
     
     override func loadView() {
         
@@ -56,12 +61,7 @@ class SecondViewController: UIViewController {
         let image3 = UIImage(named: "climab2.png") as UIImage?
         clima2.frame =  CGRect(x: 800, y: 396, width: 338, height: 350)
         clima2.setImage(image3, for: .normal)
-        //
         
-        //        let image4 = UIImage(named: "next.png")
-        //        prox.frame = CGRect(x: 1140, y: 105, width: 154, height: 154)
-        //        prox.setImage(image4, for: .normal)
-        //
         let proximo = UIImage(named:"next.png")
         let proximoView = UIImageView(image: proximo)
         proximoView.frame = CGRect(x:1140,y:105,width: 154, height: 154)
@@ -71,7 +71,7 @@ class SecondViewController: UIViewController {
         view.addSubview(clima1)
         view.addSubview(clima2)
         view.addSubview(proximoView)
-        //        view.addSubview(prox)
+       
         
         proximoView.isUserInteractionEnabled = true
 
@@ -83,16 +83,9 @@ class SecondViewController: UIViewController {
     @objc func handleTap(_ gesture: UIGestureRecognizer) {
         navigationController?.pushViewController(thirdViewController, animated: true)
     }
-    
-    //    override func viewDidLoad() {
-    //        prox.addTarget(self, action: #selector(SecondViewController.touchedButton), for: .touchUpInside)
-    //    }
-    //
-    //    @IBAction func touchedButton() {
-    //        print("iniciou")
-    //        navigationController?.pushViewController(thirdViewController, animated: true)
-    //    }
 }
+
+// Aparecem as opções de lugares com base no que ele escolheu antes
 
 class ThirdViewController: UIViewController{
     
@@ -101,7 +94,12 @@ class ThirdViewController: UIViewController{
         view.frame.size = CGSize(width: 1440, height:900)
         view.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         
+        var label = UILabel()
+        label.frame = CGRect(x: 100, y: 100, width: 100, height: 100)
+        label.text = clima
+        
         self.view = view
+        view.addSubview(label)
     }
 }
 let firstViewController = MyViewController()
